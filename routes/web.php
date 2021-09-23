@@ -23,11 +23,33 @@ $router->get('/key', function () {
     return Str::random(32);
 });
 
-
+// DATETIME pak buce
 $router->get('/datetime', 'myController@index' );
 
-
+// luas lingkaran
 $router->post('/posts', 'PostController@index' );
+
+// praktikum method
+$router->get('/get', function () {
+return 'GET';
+});
+$router->post('/post', function () {
+return 'POST';
+});
+$router->put('/put', function () {
+return 'PUT';
+});
+$router->patch('/patch', function () {
+return 'PATCH';
+});
+$router->delete('/delete', function () {
+return 'DELETE';
+});
+$router->options('/options', function () {
+return 'OPTIONS';
+});
+
+
 
 
 
