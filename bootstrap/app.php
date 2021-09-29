@@ -76,9 +76,10 @@ $app->configure('app');
 //     App\Http\Middleware\ExampleMiddleware::class
 // ]);
 
-// $app->routeMiddleware([
+$app->routeMiddleware([
 //     'auth' => App\Http\Middleware\Authenticate::class,
-// ]);
+    'age' => App\Http\Middleware\ExampleMiddleware::class
+]);
 
 /*
 |--------------------------------------------------------------------------

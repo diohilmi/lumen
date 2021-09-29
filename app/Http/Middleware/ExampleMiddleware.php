@@ -15,6 +15,9 @@ class ExampleMiddleware
      */
     public function handle($request, Closure $next)
     {
+        // return $next($request);
+        if ($request->age > 16)
+        return redirect('/fail');
         return $next($request);
     }
 }
