@@ -66,15 +66,17 @@ $router->get('/users[/{userId}]', function ($userId = null) {
 
 
 //aliases route
-$router->get('/auth/login', ['as' => 'route.auth.login', function () {
+$router->get('auth/login', ['as' => 'route.auth.login', function () {
     return 'Anda berhasil login';
 }]);
 
-$router->get('/profile', function (Request $request) {
-    if ($request->isLoggedIn) {
+$router->get('profile', function () {
+    // if ($request->isLoggedIn) {
             return redirect()->route('route.auth.login');
-    }
+    // }
 });
+
+
 
 //group route
 $router->group(['prefix' => 'users'], function () use ($router) {
