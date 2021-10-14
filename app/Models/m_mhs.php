@@ -5,9 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 
-class m_post extends Model 
+class m_mhs extends Model 
 {
-    protected $table = 'posts';
-    protected $fillable = ['title', 'body'];
+    protected $table = 'mhs';
+    protected $fillable = ['id_krs', 'registrasi'];
 
 }
