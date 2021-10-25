@@ -115,3 +115,15 @@ $router->get('/krs/{id}', 'krsController@show' );
 //praktikum
 $router->get('/praktikum', ['uses' => 'P_Controller@index']);
 $router->get('/hello', ['uses' => 'P_Controller@hello']);
+
+//middleware pak Buce
+$router->get('/umurMiddleware/{umur}', ['middleware' => 'umur', function ($umur){
+    return "umur anda sudah " . $umur;
+}] );
+
+// Register
+$router->post('/register','UserController@register');
+// Login
+$router->post('/login','UserController@login');
+// auth
+$router->get('/book','BookController@index');

@@ -78,7 +78,8 @@ $app->configure('app');
 
 $app->routeMiddleware([
     'auth' => App\Http\Middleware\Authenticate::class,
-    'age' => App\Http\Middleware\ExampleMiddleware::class
+    'age' => App\Http\Middleware\ExampleMiddleware::class,
+    'umur' => App\Http\Middleware\UmurMiddleware::class
 ]);
 
 /*
@@ -93,7 +94,7 @@ $app->routeMiddleware([
 */
 
 // $app->register(App\Providers\AppServiceProvider::class);
-// $app->register(App\Providers\AuthServiceProvider::class);
+$app->register(App\Providers\AuthServiceProvider::class);
 // $app->register(App\Providers\EventServiceProvider::class);
 
 /*
