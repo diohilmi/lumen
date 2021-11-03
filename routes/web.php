@@ -127,3 +127,10 @@ $router->post('/register','UserController@register');
 $router->post('/login','UserController@login');
 // auth
 $router->get('/book','BookController@index');
+
+//praktikum Register, Authentication dan Authorization
+$router->post('/auth/register', ['uses' => 'AuthController@register']);
+$router->post('/auth/login', ['uses' => 'AuthController@login']);
+$router->put('/pengguna/{id}', ['middleware' => 'auth', 'uses' => 'AuthController@update']);
+$router->get('/pengguna', ['middleware' => 'auth', 'uses' => 'AuthController@index']);
+// $router->get('/pengguna', 'AuthController@index');

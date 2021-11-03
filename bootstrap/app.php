@@ -77,9 +77,13 @@ $app->configure('app');
 // ]);
 
 $app->routeMiddleware([
-    'auth' => App\Http\Middleware\Authenticate::class,
+    
+    // 'auth' => App\Http\Middleware\Authenticate::class,
     'age' => App\Http\Middleware\ExampleMiddleware::class,
-    'umur' => App\Http\Middleware\UmurMiddleware::class
+    'umur' => App\Http\Middleware\UmurMiddleware::class,
+
+    //praktikum
+    'auth' => App\Http\Middleware\Authorization::class
 ]);
 
 /*
