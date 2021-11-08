@@ -129,8 +129,16 @@ $router->post('/login','UserController@login');
 $router->get('/book','BookController@index');
 
 //praktikum Register, Authentication dan Authorization
-$router->post('/auth/register', ['uses' => 'AuthController@register']);
-$router->post('/auth/login', ['uses' => 'AuthController@login']);
+// $router->post('/auth/register', ['uses' => 'AuthController@register']);
+// $router->post('auth/login',['uses' => 'AuthController@authenticate']);
 $router->put('/pengguna/{id}', ['middleware' => 'auth', 'uses' => 'AuthController@update']);
-$router->get('/pengguna', ['middleware' => 'auth', 'uses' => 'AuthController@index']);
+$router->get('/pengguna', ['middleware' => 'jwt.auth', 'uses' => 'AuthController@index']);
 // $router->get('/pengguna', 'AuthController@index');
+
+//Api Gateway
+$router->get('/prop', 'gatewayController@prop');
+$router->post('/auth/register', ['uses' => 'AuthController@register']);
+$router->post('/auth/login',['uses' => 'AuthController@login']);
+
+// praktikum jwt
+

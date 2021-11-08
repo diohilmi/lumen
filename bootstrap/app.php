@@ -86,6 +86,11 @@ $app->routeMiddleware([
     'auth' => App\Http\Middleware\Authorization::class
 ]);
 
+$app->routeMiddleware([
+    'jwt.auth' => App\Http\Middleware\JwtMiddleware::class,
+]);
+
+
 /*
 |--------------------------------------------------------------------------
 | Register Service Providers
@@ -117,5 +122,16 @@ $app->router->group([
 ], function ($router) {
     require __DIR__.'/../routes/web.php';
 });
+
+$app->router->group(
+    ['middleware' => 'jwt.auth'], 
+    function() use ($app) {
+    $app->router->get('users', function() {
+            $penggunas = \App\Pengguna::all();
+            return response()->json($penggunas);
+        });
+    }
+);
+
 
 return $app;
