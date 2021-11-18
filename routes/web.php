@@ -141,4 +141,9 @@ $router->post('/auth/register', ['uses' => 'AuthController@register']);
 $router->post('/auth/login',['uses' => 'AuthController@login']);
 
 // praktikum jwt
+$router->post('/auth_jwt/register', ['uses' => 'AuthControllerPra@register']);
+$router->post('/auth_jwt/login',['uses' => 'AuthControllerPra@login']);
+$router->put('/auth_jwt/{id}', ['middleware' => 'auth', 'uses' => 'AuthControllerPra@update']);
+$router->get('/auth_jwt/pengguna', ['middleware' => 'auth', 'uses' => 'AuthControllerPra@index']);
+$router->delete('/auth_jwt/del/{id}', ['middleware' => 'auth', 'uses' => 'AuthControllerPra@delete']);
 
